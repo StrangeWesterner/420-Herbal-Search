@@ -156,6 +156,7 @@ $("#reports-btn").on("click", function (event) {
   var searchTerm = $("#reports-search").val().trim();
   console.log(searchTerm);
   reportSearch(searchTerm, currentPage);
+  $("#reports-search").val("");
 });
 
 $("#reports-random").on("click", function (event) {
@@ -203,6 +204,7 @@ $("#strains-btn").on("click", function (event) {
   } else {
     $("#search-results").html("<p class='no-strain'>We have no listing of a strain by that name. Please try again.</p>");
   }
+  $("#strains-search").val("");
 });
 
 $("#strains-random").on("click", function (event) {
