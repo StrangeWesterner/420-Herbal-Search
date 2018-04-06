@@ -112,6 +112,7 @@ function strainSearch(search) {
       name.addClass("strain-name");
       race.addClass("info strain-race");
       desc.addClass("info strain-desc");
+      noDesc.addClass("info no-desc");
       strainDiv.append(name);
       strainDiv.append(race);
       if (element.desc === null) strainDiv.append(noDesc);

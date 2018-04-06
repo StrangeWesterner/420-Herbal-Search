@@ -91,7 +91,7 @@ form {
   padding-bottom: 10px;
 }
 
-.report-img, .no-img, .report-link {
+.report-img, .no-img, .report-link, .no-desc {
   display: inline-block;
   font-family: 'Didact Gothic', 'Times New Roman', Times, serif;
   font-size: 1.1em;
@@ -172,7 +172,7 @@ form {
   .report-data, .strain-race {
     margin: 7px 0 7px 20px;
   }
-  h4, p, .report-img, .no-img, .report-link {
+  h4, p, .report-img, .no-img, .report-link, .no-desc {
     margin: 7px 0 7px 20px;
     font-size: .9em;
   }
@@ -188,7 +188,7 @@ form {
   .report-data, .strain-race {
     margin: 5px 0 5px 20px;
   }
-  h4, p, .report-img, .no-img, .report-link {
+  h4, p, .report-img, .no-img, .report-link, .no-desc {
     margin: 5px 0 5px 20px;
     font-size: .9em;
   }
