@@ -70,6 +70,10 @@ form {
   text-align: center;
 }
 
+input {
+  font-size: 18px;
+}
+
 .report-response:first-child, .strain-response:first-child {
   border-top: 2px solid var(--mainColor);
 }
