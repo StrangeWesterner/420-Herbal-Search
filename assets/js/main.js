@@ -1,76 +1,3 @@
-// function ajaxCall(url, callbackFunctionName){
-//   var xhr = new XMLHttpRequest();
-//     xhr.open("GET", url);
-//     xhr.onload = function(){
-//       if(xhr.status === 200){
-//         callbackFunctionName(JSON.parse(xhr.responseText));
-//       }
-//       else{
-//         console.log("request failed");
-//       }
-//     };
-//     xhr.send();
-// }
-
-// function testJson(response){
-//   console.log(response);
-// }
-
-
-
-
-
-// var queryUrl = "http://strainapi.evanbusse.com/isBuRUV/strains/search/name/strawberry%20cheesecake";
-
-// ajaxCall(queryUrl, testJson);
-
-// var request = require("request");
-// var fs = require("fs");
-
-// var strainsArray = [];
-
-// fs.readFile("rawStrains.txt", "utf8", (error, data) => {
-//   if (error) console.log(error);
-//   else {
-//     strainsArray = data.split(",");
-
-//     request("http://strainapi.evanbusse.com/isBuRUV/strains/search/all", (error, response, body) => {
-//       var usefulData = JSON.parse(body);
-//       if (error) {
-//         console.log("Request response error.");
-//       }
-//       else {
-//         fs.appendFile("strains.txt", "[", function (error) {});
-//         for (let i = 0; i < strainsArray.length; i++) {
-//           const element = strainsArray[i];
-//           const imageTerm = element.split(" ").join("+");
-//           const flav = usefulData[`${element}`].flavors;
-//           const pos = usefulData[`${element}`].effects.positive;
-//           const neg = usefulData[`${element}`].effects.negative;
-//           const med = usefulData[`${element}`].effects.medical;
-//           const flavors = flav.toString().split(",").join(", ");
-//           const posEffects = pos.toString().split(",").join(", ");
-//           const negEffects = neg.toString().split(",").join(", ");
-//           const medUses = med.toString().split(",").join(", ");
-//           fs.appendFile("strains.txt", [
-//             `Name: ${element}`,
-//             `\nid: ${usefulData[`${element}`].id}`,
-//             `\nallbud.com url: https://www.allbud.com/marijuana-strains/search?q=${imageTerm}`,
-//             `\nRace: ${usefulData[`${element}`].race}`,
-//             `\nFlavors: ${flavors}`,
-//             `\nPositive effects: ${posEffects}`,
-//             `\nNegative effects: ${negEffects}`,
-//             `\nMedical uses: ${medUses}`,
-//             `\n----------------------------------\n`
-//           ], function (error) {
-//             console.log("There was a file append error.");
-//           });
-//         }
-//       }
-//     });
-//   }
-// });
-
 var currentPage = 1;
 
 function getRandomParams() {
@@ -199,7 +126,7 @@ $("#strains-btn").on("click", function (event) {
   $("#search-results").html("");
   var searchTerm = $("#strains-search").val().trim();
   console.log(searchTerm);
-  if (strainsArrayOne.toString().toLowerCase().includes(searchTerm) || strainsArrayTwo.toString().toLowerCase().includes(searchTerm)) {
+  if (strainsArrayOne.toString().toLowerCase().includes(searchTerm.toLowerCase()) || strainsArrayTwo.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
     strainSearch(searchTerm);
   } else {
     $("#search-results").html("<p class='no-strain'>We have no listing of a strain by that name. Please try again.</p>");
