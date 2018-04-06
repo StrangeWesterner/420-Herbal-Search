@@ -57,6 +57,7 @@ header img {
 }
 
 .form-heading {
+  margin-bottom: 5px;
   padding-bottom: 5px;
   text-align: center;
   border-bottom: 2px solid #075700;
@@ -161,6 +162,9 @@ form {
   h1 {
     font-size: 2em;
   }
+  .form-heading {
+    font-size: 1em;
+  }
   .report-name, .strain-name {
     font-size: 1em;
     font-weight: bold;
@@ -188,14 +192,26 @@ form {
     margin: 5px 0 5px 20px;
     font-size: .9em;
   }
+  .form-heading {
+    font-size: .9em;
+  }
   .leaf {
     height: 30px;
+  }
+}
+
+@media (max-width: 350px) {
+  .form-heading {
+    font-size: .8em;
   }
 }
 
 @media (max-width: 320px) {
   h1 {
     font-size: 1.6em;
+  }
+  .form-heading {
+    font-size: .75em;
   }
   .leaf {
     height: 28px;
