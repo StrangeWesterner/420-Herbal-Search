@@ -118,8 +118,14 @@ input {
   text-decoration: underline;
 }
 
+.strain-desc {
+  font-size: 1.4em;
+  line-height: 1.3;
+}
+
 .strain-race {
   padding: 5px 0;
+  font-size: 1.6em;
 }
 
 #more-results, #reports-btn, #reports-random, #strains-btn, #strains-random {
@@ -198,6 +204,12 @@ input {
   }
   .form-heading {
     font-size: .9em;
+  }
+  .strain-race {
+    font-size: 1.2em;
+  }
+  .strain-desc {
+    font-size: 1em;
   }
   .leaf {
     height: 30px;
