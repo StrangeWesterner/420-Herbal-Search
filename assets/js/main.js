@@ -98,7 +98,7 @@ $("#reports-random").on("click", function (event) {
 function strainSearch(search) {
   $.ajax({
     method: "GET",
-    url: `https://obscure-gorge-69381.herokuapp.com/http://strainapi.evanbusse.com/isBuRUV/strains/search/name/${search}`
+    url: `https://obscure-gorge-69381.herokuapp.com/http://strainapi.evanbusse.com/WAKKe6h/strains/search/name/${search}`
   }).then(function (result) {
     console.log(result);
     for (let i = 0; i < result.length; i++) {
@@ -129,7 +129,7 @@ function strainSearch(search) {
 function strainEffectSearch(id) {
   $.ajax({
     method: "GET",
-    url: `https://obscure-gorge-69381.herokuapp.com/http://strainapi.evanbusse.com/isBuRUV/strains/data/effects/${id}`
+    url: `https://obscure-gorge-69381.herokuapp.com/http://strainapi.evanbusse.com/WAKKe6h/strains/data/effects/${id}`
   }).then(function (result) {
     console.log(result);
     addEffects(result.positive, "Positive Effects", id);
