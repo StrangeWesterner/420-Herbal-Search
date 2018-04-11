@@ -1,7 +1,7 @@
 var currentPage = 1;
 
 function getRandomParams() {
-  var randomNum = Math.floor(Math.random() * Math.floor(2));  
+  var randomNum = Math.floor(Math.random() * Math.floor(2));
   if (randomNum === 0) {
     return strainsArrayOne[Math.floor(Math.random() * Math.floor(strainsArrayOne.length))];
     console.log(randomTerm);
@@ -29,10 +29,10 @@ function reportSearch(search, page) {
         let reportDiv = $("<div>");
         let name = $(`<h3>${element.name}</h3>`);
         let noImage = $("<p>( no image available )</p>");
-        let imageLink = $(`<a href=${element.image}>See Image</a><br>`);
-        let genetics = $(`<h4>Genetics: ${element.genetics.names}</h4>`);
-        let noGen = $("<h4>Genetics: Unknown</h4>");
-        let seedCo = $(`<h4>Seed Company: ${element.seedCompany.name}</h4>`);
+        let imageLink = $(`<a href=${element.image}>See Image</a>`);
+        let genetics = $(`<h4><span class="effects-title">Genetics:</span> ${element.genetics.names}</h4>`);
+        let noGen = $(`<h4><span class="effects-title">Genetics:</span> Unknown</h4>`);
+        let seedCo = $(`<h4><span class="effects-title">Seed Company:</span> ${element.seedCompany.name}</h4>`);
         let infoLink = $(`<a href=${element.url}>more info</a>`);
         reportDiv.addClass("report-response");
         imageLink.addClass("info report-img");
@@ -105,21 +105,60 @@ function strainSearch(search) {
       const element = result[i];
       let strainDiv = $("<div>");
       let name = $(`<h3>${element.name}</h3>`);
-      let race = $(`<h4>Species: ${element.race}</h4>`);
-      let desc = $(`<p>${element.desc}</p>`);
+      let race = $(`<h4><span class="effects-title">Species:</span> ${element.race}</h4>`);
+      let desc = $(`<p><span class="effects-title">Description:</span> ${element.desc}</p>`);
       let noDesc = $("<p>No description available.</p>");
+      let effectsDiv = $("<div>");
       strainDiv.addClass("strain-response");
       name.addClass("strain-name");
       race.addClass("info strain-race");
       desc.addClass("info strain-desc");
       noDesc.addClass("info no-desc");
+      effectsDiv.addClass(element.id + "-effects-div");
       strainDiv.append(name);
       strainDiv.append(race);
       if (element.desc === null) strainDiv.append(noDesc);
       else strainDiv.append(desc);
+      strainDiv.append(effectsDiv);
       $("#search-results").append(strainDiv);
+      strainEffectSearch(element.id);
     }
   });
+}
+
+function strainEffectSearch(id) {
+  $.ajax({
+    method: "GET",
+    url: `https://obscure-gorge-69381.herokuapp.com/http://strainapi.evanbusse.com/isBuRUV/strains/data/effects/${id}`
+  }).then(function (result) {
+    console.log(result);
+    addEffects(result.positive, "Positive Effects", id);
+    addEffects(result.negative, "Negative Effects", id);
+    addEffects(result.medical, "Medical Uses", id);
+  })
+}
+
+function addEffects(p1, p2, p3) {
+  let FX = $("<p>");
+  let NOFX = $("<p>");
+  FX.addClass("info strain-effects");
+  NOFX.addClass("info strain-effects");
+  FX.html(`<span class="effects-title">${p2}: </span>`);
+  NOFX.html(`<span class="effects-title">${p2}: </span> Unknown`);
+  if (p1.length === 0) {
+    $(`.${p3}-effects-div`).append(NOFX);
+  }
+  else {
+    for (let i = 0; i < p1.length - 1; i++) {
+      const element = p1[i];
+      FX.append(`${element}, `);
+    }
+    for (let i = p1.length - 1; i < p1.length; i++) {
+      const element = p1[i];
+      FX.append(`${element}`);
+    }
+    $(`.${p3}-effects-div`).append(FX);
+  }
 }
 
 $("#strains-btn").on("click", function (event) {

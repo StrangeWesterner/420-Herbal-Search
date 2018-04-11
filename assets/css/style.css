@@ -3,13 +3,12 @@
 }
 
 :root {
-  --links: #075700;
+  --links: #0026ff;
   --linkHover: #460000;
   --mainColor: #850000;
 }
 
 body {
-  /* background-color: #d1d1d1; */
   background: linear-gradient(#ac0000b0, #e4d50eb0, #168100b0);
   background-attachment: fixed;
   color: #fff;
@@ -86,41 +85,62 @@ input {
 }
 
 .info {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .report-name, .strain-name {
-  font-size: 1.2em;
+  font-size: 1.75em;
   font-weight: bold;
   padding-bottom: 10px;
 }
 
-.report-img, .no-img, .report-link, .no-desc {
-  display: inline-block;
+.no-img, .no-desc, .report-data {
+  display: block;
+}
+
+.report-img, .report-link, .no-img, .no-desc, .report-data {
   font-family: 'Didact Gothic', 'Times New Roman', Times, serif;
   font-size: 1.1em;
   font-weight: bold;
-  margin: 10px 0 10px 20px;
+  margin: 15px 0 15px 15px;
+}
+
+.no-img {
+  margin-top: 5px;
 }
 
 .report-data, .strain-race {
-  margin: 10px 0 10px 20px;
+  margin: 15px;
 }
 
 .report-response a {
   color: var(--links);
   text-decoration: none;
-  text-shadow: 0 0 10px #e6e6e6;
+  text-shadow: 0 0 5px transparent;
 }
 
 .report-response a:hover {
   color: var(--linkHover);
   text-decoration: underline;
+  text-shadow: 0 0 5px transparent;
 }
 
-.strain-desc {
+.strain-desc, .strain-effects {
   font-size: 1.4em;
   line-height: 1.3;
+}
+
+.effects-title {
+  color: #0a7c00;
+  text-shadow: 0 0 10px #fff;
+}
+
+.strain-effects:first-child {
+  padding-top: 10px;
+}
+
+.strain-effects:nth-child(2) {
+  padding: 10px 0;
 }
 
 .strain-race {
@@ -128,7 +148,7 @@ input {
   font-size: 1.6em;
 }
 
-#more-results, #reports-btn, #reports-random, #strains-btn, #strains-random {
+#more-results, #reports-btn, #reports-random, #strains-btn, #strains-random, .effects-btn {
   margin-top: 5px;
   background-color: #075700;
   color: #fff;
@@ -175,10 +195,6 @@ input {
   .form-heading {
     font-size: 1em;
   }
-  .report-name, .strain-name {
-    font-size: 1em;
-    font-weight: bold;
-  }
   .report-data, .strain-race {
     margin: 7px 0 7px 20px;
   }
@@ -205,10 +221,13 @@ input {
   .form-heading {
     font-size: .9em;
   }
+  .report-name, .strain-name {
+    font-size: 1.2em;
+  }
   .strain-race {
     font-size: 1.2em;
   }
-  .strain-desc {
+  .strain-desc, .strain-effects {
     font-size: 1em;
   }
   .leaf {
